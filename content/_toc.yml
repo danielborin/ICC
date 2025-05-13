@@ -22,7 +22,7 @@ parts:
     - file: 04-matplotlib/L03_matplotlib_01_Intro.ipynb
     - file: 04-matplotlib/L03_matplotlib_02_Plotagem.ipynb
     - file: 04-matplotlib/L03_matplotlib_03_PlotagemAvancada.ipynb
-    - file: 04-matplolib/L03_matplotlib_04_Exercicios.ipynb
+    - file: 04-matplotlib/L03_matplotlib_04_Exercicios.ipynb
 
   - caption: "Resolvendo Expressões Matemáticas Analíticamente com o Sympy"
     chapters:
