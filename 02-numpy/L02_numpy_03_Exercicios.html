@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercícios: Numpy &#8212; Introdução à Ciência da Computação</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=359afcf4" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=0ff6c57f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=5f54a428"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-numpy/L02_numpy_03_Exercicios';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+    <link rel="next" title="Entendendo o matplotlib" href="../04-matplotlib/L03_matplotlib_01_Intro.html" />
+    <link rel="prev" title="Operações Avançadas no Numpy" href="L02_numpy_02_Avancado.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_Como_Usar.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_ICC.png" class="logo__image only-light" alt="Introdução à Ciência da Computação - Home"/>
+    <script>document.write(`<img src="../_static/logo_ICC.png" class="logo__image only-dark" alt="Introdução à Ciência da Computação - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_Como_Usar.html">
+                    Introdução à Computação Científica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Básico do Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_01_Jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_02_VariaveisBasico.html">Tipos Básicos de Variáveis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_03_VariaveisAvancado.html">Variáveis de Tipo Avançado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_04_ControleFluxo.html">Controle de Fluxo (Condições e Laços)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_05_Funcoes.html">Funções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_06_Script.html">Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-python/L01_python_07_Exercicios.html">Exercícios: Básico do Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arrays: Conhecendo o Numpy</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="L02_numpy_01_Basico.html">Numpy: Operações Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L02_numpy_02_Avancado.html">Operações Avançadas no Numpy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercícios: Numpy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gerando Gráficos com o Matplotlib</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_01_Intro.html">Entendendo o matplotlib</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_02_Plotagem.html">Plotagem</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_03_PlotagemAvancada.html">Plotagem Avançada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_04_Exercicios.html">Exercícios: Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resolvendo Expressões Matemáticas Analíticamente com o Sympy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_01_TrabalhandoSympy.html">Sympy: Trabalhando com Símbolos Matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_02_Simplificando.html">Simplicando Expressões</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_03_CalcDifInt.html">Resolvendo operações de Cálculo Diferencial e Integral</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_04_Solucoes.html">Encontrando Soluções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_05_Exercicios.html">Exercicios: Sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scipy: Utilizando Métodos Númericos no Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_01_Metodos.html">Métodos Númericos e o Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_02_Integracao.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_03_Interpolacao.html">Interpolação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_04_Raizes.html">Encontrando Raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_05_AjusteCurva.html">Ajuste de Curvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_06_Exercicios.html">Exercicios: Scipy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/danielborin/lastone/main?urlpath=tree/content/02-numpy/L02_numpy_03_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/danielborin/lastone/blob/main/content/02-numpy/L02_numpy_03_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/02-numpy/L02_numpy_03_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercícios: Numpy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercicios-numpy">
+<h1>Exercícios: Numpy<a class="headerlink" href="#exercicios-numpy" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Crie os seguintes arrays:</p>
+<ul class="simple">
+<li><p>Crie um array com 5 zeros.</p></li>
+<li><p>Crie um array com 10 uns.</p></li>
+<li><p>Crie um array com 5 valores 3.141.</p></li>
+<li><p>Crie um array com os inteiros de 1 a 20.</p></li>
+<li><p>Crie uma matriz 5 x 5 de uns com o tipo de dado <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Use o numpy para:</p>
+<ul class="simple">
+<li><p>Criar uma matriz 3D de 3 x 3 x 3 cheia de números aleatórios retirados de uma distribuição normal padrão (dica: np.random.randn()).</p></li>
+<li><p>Redimensionar a matriz acima para o formato (27,).</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Crie um array com 20 números espaçados linearmente entre 1 e 10.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="4">
+<li><p>Considere a seguinte array:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.arange(1,</span> <span class="pre">26).reshape(5,</span> <span class="pre">5)</span></code></p>
+<p>Utilize indexação para obter os seguintes resultados:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></li>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">array</span><span class="p">([[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">]])</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array([</span> <span class="pre">6,</span>&#160; <span class="pre">7,</span>&#160; <span class="pre">8,</span>&#160; <span class="pre">9,</span> <span class="pre">10])</span></code></p></li>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">array</span><span class="p">([[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]])</span>
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">array</span><span class="p">([[</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">]])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Considere a seguinte array:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.arange(1,</span> <span class="pre">17).reshape(4,</span> <span class="pre">4)</span></code></p>
+<p>a) Calcule a soma de todos os numeros de <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<p>b) Calcule a soma de cada linha de <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<p>c) Extraia todos os valores de <code class="docutils literal notranslate"><span class="pre">a</span></code> que são maiores que a média de <code class="docutils literal notranslate"><span class="pre">a</span></code> (dica: use uma máscara booleana).</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="6">
+<li><p>O Numpy possui uma função padrão para calcular o desvio padrão, <code class="docutils literal notranslate"><span class="pre">np.std()</span></code>. Porém, vamos escrever nossa própria função que opera sobre um array 1D (vetor). O desvio padrão é uma medida da «largura» da distribuição dos números dentro do vetor.</p>
+<p>Dado um array <span class="math notranslate nohighlight">\(a\)</span> e sua média <span class="math notranslate nohighlight">\(\bar{a}\)</span>, o desvio padrão é calculado pela fórmula:</p>
+<div class="math notranslate nohighlight">
+\[
+    \sigma = \left [ \frac{1}{N} \sum_{i=1}^N (a_i - \bar{a})^2 \right ]^{1/2}
+    \]</div>
+<p>Agora, vamos criar uma função para calcular o desvio padrão de um array de entrada, <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Primeiro, calcule a média dos elementos de <code class="docutils literal notranslate"><span class="pre">a</span></code> para obter <span class="math notranslate nohighlight">\(\bar{a}\)</span>.</p></li>
+<li><p>Em seguida, calcule a soma dos quadrados de <span class="math notranslate nohighlight">\((a - \bar{a})\)</span>.</p></li>
+<li><p>Depois, divida essa soma pelo número de elementos no array.</p></li>
+<li><p>Por fim, tire a raiz quadrada (você pode usar <code class="docutils literal notranslate"><span class="pre">np.sqrt()</span></code> para isso).</p></li>
+</ol>
+<p>Teste sua função utilizando um array aleatório e compare o resultado com o da função <code class="docutils literal notranslate"><span class="pre">np.std()</span></code> do Numpy. Não se esqueça de verificar também o tempo de execução.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Crie uma matriz 10 x 10 inicializada com números aleatórios entre 0 e 10. Em seguida, calcule a média da matriz (existe uma função do numpy para isso, <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Crie uma função que gere uma aposta válida para a Mega Sena. A função deve produzir uma lista com 6 números aleatórios, variando entre 1 e 60, sem números repetidos.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="9">
+<li><p>Você tem uma lista em que cada elemento representa o valor gasto em reais em uma compra feita com seu cartão:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mf">13.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">5.99</span><span class="p">,</span> <span class="mf">27.30</span><span class="p">,</span> <span class="mf">199.99</span><span class="p">,</span> <span class="mf">57.21</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Faça um programa cujo objetivo é calcular a porcentagem de cada valor em relação ao total gasto, dividindo cada gasto pelo total da lista para obter a porcentagem correspondente a cada compra.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="10">
+<li><p>Crie um array com ângulos em graus: 0, 15, 30, … até 90 (ou seja, de 15 em 15 graus até 90).</p>
+<p>Em seguida, crie 3 novos arrays contendo, respectivamente, o seno, cosseno e tangente dos elementos do primeiro array.</p>
+<p>Por fim, calcule o arco seno, arco cosseno e arco tangente dos arrays acima e compare os resultados com os ângulos originais.</p>
+</li>
+</ol>
+<ol class="arabic simple" start="11">
+<li><p>Desenvolva uma função que receba uma matriz quadrada de dimensão n x n e retorne a matriz triangular superior. Nesse tipo de matriz, todos os elementos abaixo da diagonal principal devem ser substituídos por zeros, mantendo os valores na diagonal e acima dela.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="12">
+<li><p>Dado o array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Calcule a diferença entre cada elemento e seu vizinho.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="13">
+<li><p>Dada uma matriz de ordem n x n, crie funções para:</p>
+<p>a) Calcular a soma dos elementos presentes na diagonal principal da matriz.</p>
+<p>b) Calcular a soma dos elementos presentes na diagonal secundária.</p>
+<p>c) Calcular a soma dos elementos em cada linha da matriz.</p>
+<p>d) Calcular a soma dos elementos em cada coluna da matriz.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="14">
+<li><p>Dada uma matriz quadrada n x n, faça uma função que diga se ela é simétrica ou não. Teste para <code class="docutils literal notranslate"><span class="pre">np.random.randint(1,</span> <span class="pre">99,</span> <span class="pre">(5,</span> <span class="pre">5))</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="15">
+<li><p>Desenvolva um programa para calcular a multiplicação de duas matrizes <span class="math notranslate nohighlight">\(C = AB\)</span>, onde <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> e <span class="math notranslate nohighlight">\(C\)</span> são matrizes de ordem <span class="math notranslate nohighlight">\(n \times n\)</span>. Em seguida, compare o resultado obtido pela sua implementação com o resultado da função <code class="docutils literal notranslate"><span class="pre">dot</span></code> do pacote Numpy.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="16">
+<li><p>Crie uma matriz 4x3 com valores aleatórios inteiros entre 1 e 100. Em seguida imprima:</p></li>
+</ol>
+<ul class="simple">
+<li><p>A matriz original</p></li>
+<li><p>A matriz transposta (use .T)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="17">
+<li><p>Crie um array NumPy com 10 valores aleatórios entre 0 e 100.
+Normalize o array de modo que os valores fiquem entre 0 e 1, com a fórmula:
+xnormalizado = x - min(x)/max(x) - min(x)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="18">
+<li><p>Crie um matriz 3 x 4 com valores inteiros aleatórios entre 1 e 50. Depois calcule a média dos elementos de cada linha da matriz. Dica: use np.mean(matrzi, axis = 1)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="19">
+<li><p>Crie uma matriz 3x3 com valores inteiros aleatórios entre 1 e 10. Calcule o determinante dessa matriz usando np.linalg.det().</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="20">
+<li><p>Crie uma matriz 5x3 com números inteiros aleatórios entre 10 e 99. Encontre o maior valor de cada coluna da matriz. Dica: use np.max(matriz, axis=0).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "danielborin/lastone",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./02-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="L02_numpy_02_Avancado.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Operações Avançadas no Numpy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../04-matplotlib/L03_matplotlib_01_Intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">próximo</p>
+        <p class="prev-next-title">Entendendo o matplotlib</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De Daniel Borin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

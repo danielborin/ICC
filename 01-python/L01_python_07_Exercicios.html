@@ -1,0 +1,1437 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercícios: Básico do Python &#8212; Introdução à Ciência da Computação</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=359afcf4" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=0ff6c57f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=5f54a428"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01-python/L01_python_07_Exercicios';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+    <link rel="next" title="Numpy: Operações Básicas" href="../02-numpy/L02_numpy_01_Basico.html" />
+    <link rel="prev" title="Script" href="L01_python_06_Script.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_Como_Usar.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_ICC.png" class="logo__image only-light" alt="Introdução à Ciência da Computação - Home"/>
+    <script>document.write(`<img src="../_static/logo_ICC.png" class="logo__image only-dark" alt="Introdução à Ciência da Computação - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../00_Como_Usar.html">
+                    Introdução à Computação Científica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Básico do Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="L01_python_01_Jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L01_python_02_VariaveisBasico.html">Tipos Básicos de Variáveis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L01_python_03_VariaveisAvancado.html">Variáveis de Tipo Avançado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L01_python_04_ControleFluxo.html">Controle de Fluxo (Condições e Laços)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L01_python_05_Funcoes.html">Funções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L01_python_06_Script.html">Script</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercícios: Básico do Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arrays: Conhecendo o Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02-numpy/L02_numpy_01_Basico.html">Numpy: Operações Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-numpy/L02_numpy_02_Avancado.html">Operações Avançadas no Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-numpy/L02_numpy_03_Exercicios.html">Exercícios: Numpy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gerando Gráficos com o Matplotlib</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_01_Intro.html">Entendendo o matplotlib</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_02_Plotagem.html">Plotagem</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_03_PlotagemAvancada.html">Plotagem Avançada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-matplotlib/L03_matplotlib_04_Exercicios.html">Exercícios: Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resolvendo Expressões Matemáticas Analíticamente com o Sympy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_01_TrabalhandoSympy.html">Sympy: Trabalhando com Símbolos Matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_02_Simplificando.html">Simplicando Expressões</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_03_CalcDifInt.html">Resolvendo operações de Cálculo Diferencial e Integral</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_04_Solucoes.html">Encontrando Soluções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-sympy/L04_sympy_05_Exercicios.html">Exercicios: Sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scipy: Utilizando Métodos Númericos no Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_01_Metodos.html">Métodos Númericos e o Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_02_Integracao.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_03_Interpolacao.html">Interpolação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_04_Raizes.html">Encontrando Raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_05_AjusteCurva.html">Ajuste de Curvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-scipy/L05_scipy_06_Exercicios.html">Exercicios: Scipy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/danielborin/lastone/main?urlpath=tree/content/01-python/L01_python_07_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/danielborin/lastone/blob/main/content/01-python/L01_python_07_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/01-python/L01_python_07_Exercicios.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercícios: Básico do Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercicios-basico-do-python">
+<h1>Exercícios: Básico do Python<a class="headerlink" href="#exercicios-basico-do-python" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Elabore um programa em Python que leia três números reais e calcule a média desses números, exibindo o resultado na tela.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Calcule a área de um círculo de raio 2. Assuma <em>pi = 3.14</em>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Sabemos que a conversão de uma temperatura em Celsius para Fahrenheit é dada pela fórmula:</p>
+<div class="math notranslate nohighlight">
+\[ F = \frac{9}{5} \cdot C + 32 \]</div>
+<p>Crie um programa que receba uma temperatura em Celsius e exiba o valor correspondente em Fahrenheit na tela.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="4">
+<li><p>A fórmula usada para calcular os juros compostos é:</p>
+<div class="math notranslate nohighlight">
+\[ M = C \times \left( 1 + \frac{J}{100} \right)^P \]</div>
+<p>em que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( C \)</span> é o capital inicial,</p></li>
+<li><p><span class="math notranslate nohighlight">\( J \)</span> é a taxa de juros mensal (%),</p></li>
+<li><p><span class="math notranslate nohighlight">\( P \)</span> é o período em meses.</p></li>
+</ul>
+<p>Desenvolva um programa que leia os valores de <span class="math notranslate nohighlight">\( C \)</span>, <span class="math notranslate nohighlight">\( J \)</span> e <span class="math notranslate nohighlight">\( P \)</span>, e calcule e mostre na tela o valor final após a aplicação dos juros compostos.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>A média final do curso é calculada pela seguinte fórmula:</p>
+<div class="math notranslate nohighlight">
+\[ MF = 0.35 \times P1 + 0.35 \times P2 + 0.2 \times NT + 0.1 \times EX \]</div>
+<p>Onde:</p>
+<ul class="simple">
+<li><p>P1 é a nota da primeira avaliação,</p></li>
+<li><p>P2 é a nota da segunda avaliação,</p></li>
+<li><p>NT é a nota dos trabalhos.</p></li>
+</ul>
+<p>Crie um programa que leia as notas P1, P2 e NT, calcule a média final e imprima a situação do aluno com base na média final:</p>
+<ul class="simple">
+<li><p>«Reprovado» se a média for inferior a 5,</p></li>
+<li><p>«Recuperação» se a média estiver entre 5 e 6,</p></li>
+<li><p>«Aprovado» se a média for maior ou igual a 6.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="6">
+<li><p>O índice de massa corpórea (IMC) de uma pessoa é calculado pela fórmula:</p>
+<div class="math notranslate nohighlight">
+\[ IMC = \frac{peso}{altura^2} \]</div>
+<p>em que:</p>
+<ul class="simple">
+<li><p>peso é o peso da pessoa em quilogramas,</p></li>
+<li><p>altura é a altura da pessoa em metros.</p></li>
+</ul>
+<p>Com base no IMC calculado, a classificação do indivíduo é a seguinte:</p>
+<ul class="simple">
+<li><p>Abaixo de 18,5: «Abaixo do peso»,</p></li>
+<li><p>Entre 18,5 e 24,9: «Peso normal»,</p></li>
+<li><p>Entre 25,0 e 29,9: «Sobrepeso»,</p></li>
+<li><p>Entre 30,0 e 34,9: «Obesidade grau 1»,</p></li>
+<li><p>Entre 35,0 e 39,9: «Obesidade grau 2»,</p></li>
+<li><p>Acima de 40,0: «Obesidade grau 3».</p></li>
+</ul>
+<p>Crie um programa que leia o peso e a altura de um indivíduo, calcule seu IMC e imprima o valor calculado, além da sua classificação de acordo com a tabela acima.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="7">
+<li><p>Uma equação do 2º grau é representada pela forma padrão:</p>
+<div class="math notranslate nohighlight">
+\[ ax^2 + bx + c = 0 \]</div>
+<p>As soluções para essa equação são dadas pela famosa fórmula de Bhaskara:</p>
+<div class="math notranslate nohighlight">
+\[ x_1 = \frac{-b - \sqrt{\Delta}}{2a} \]</div>
+<div class="math notranslate nohighlight">
+\[ x_2 = \frac{-b + \sqrt{\Delta}}{2a} \]</div>
+<p>em que <span class="math notranslate nohighlight">\( \Delta = b^2 - 4ac \)</span> é o discriminante.</p>
+<p>Crie um programa que, dados os valores de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> e <span class="math notranslate nohighlight">\(c\)</span>, calcule e imprima as soluções reais da equação do 2º grau, de acordo com as condições:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span> não pode ser igual a zero.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Delta \)</span> não pode ser negativo. Se <span class="math notranslate nohighlight">\( \Delta = 0 \)</span>, existe apenas uma solução real.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Uma fruteira possui a seguinte tabela de preços para frutas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de fruta</p></th>
+<th class="head"><p>Até 5 Kg</p></th>
+<th class="head"><p>Acima de 5 Kg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Morango</p></td>
+<td><p>R$ 2,50 por Kg</p></td>
+<td><p>R$ 2,20 por Kg</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maçã</p></td>
+<td><p>R$ 1,80 por Kg</p></td>
+<td><p>R$ 1,50 por Kg</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Se o cliente comprar mais de 8 Kg no total ou se o valor total da compra ultrapassar R$ 25,00, será concedido um desconto de 10% sobre o total.</p>
+<p>Crie um programa que leia a quantidade de morangos (em Kg) e a quantidade de maçãs (em Kg) compradas, calcule o valor total da compra e determine o valor a ser pago pelo cliente, aplicando o desconto se necessário.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Elabore um programa que solicite a entrada de quatro notas, armazene-as em uma lista e exiba na tela as notas informadas, junto com a média calculada delas.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Escreva um código que imprima os elementos menores que 5 na seguinte lista:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>Escreva um código que encontra todos os divisores do número 42.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>Calcule a multiplicação das duas matrizes abaixo sem usar laços:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="13">
+<li><p>Calcule a multiplicação das duas matrizes acima usando laços</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="14">
+<li><p>Calcule o fatorial de 5 usando algum tipo de laço.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="15">
+<li><p>Calcule a distância Euclidiana dos seguintes vetores:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="16">
+<li><p>Crie um programa que leia um número limite <span class="math notranslate nohighlight">\(N\)</span> e imprima todos os números pares de 0 até <span class="math notranslate nohighlight">\(N\)</span> (inclusive, caso <span class="math notranslate nohighlight">\(N\)</span> seja par).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="17">
+<li><p>Imprima as potências de 2, começando em <span class="math notranslate nohighlight">\(2^0\)</span>, enquanto o resultado for menor do que 2000.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="18">
+<li><p>Verifique se o número 79 é primo.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="19">
+<li><p>Crie um programa que leia um número <span class="math notranslate nohighlight">\(N\)</span> e calcule a soma dos <span class="math notranslate nohighlight">\(N\)</span> primeiros números inteiros.</p></li>
+</ol>
+<ol class="arabic simple" start="20">
+<li><p>Escreva uma linha de código Python que gere uma lista apenas com os valores divisíveis por 2 e por 5 na lista abaixo:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="21">
+<li><p>Escreva um laço que resulte no sétimo elemento da <a class="reference external" href="https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci">sequência de Fibonacci</a> (lembrando que em Python os índices começam em 0):</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="22">
+<li><p>Séries definidas por somatórios matemáticos são utilizadas para computar e aproximar diversas quantidades importantes. Para cada uma das séries abaixo, crie um programa que calcule o valor da série:</p>
+<p>a)</p>
+<div class="math notranslate nohighlight">
+\[ S = \frac{1}{1} + \frac{2}{2} + \frac{5}{3} + \frac{7}{4} + \dots + \frac{99}{50} \]</div>
+<p>b)</p>
+<div class="math notranslate nohighlight">
+\[ W = \frac{1}{1} - \frac{2}{4} + \frac{3}{9} - \frac{4}{16} + \frac{5}{25} - \frac{6}{36} + \dots + \frac{10}{100} \]</div>
+<p>c)</p>
+<div class="math notranslate nohighlight">
+\[ Z = \frac{1000}{1} - \frac{997}{2} + \frac{994}{3} - \frac{991}{4} \]</div>
+<p>O programa deve calcular e imprimir o valor de cada uma dessas séries.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="23">
+<li><p>A constante matemática <span class="math notranslate nohighlight">\(\pi\)</span> é amplamente utilizada em diversas áreas do conhecimento, como física, geometria e engenharia. Existem várias maneiras de aproximar o valor de <span class="math notranslate nohighlight">\(\pi\)</span> por meio de séries matemáticas, que são sequências de números que convergem para esse valor conforme somamos mais termos. Abaixo, apresentamos três séries clássicas para calcular aproximações de <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+</ol>
+<ol class="arabic">
+<li><p><strong>Série de Leibniz</strong></p>
+<p>Uma das séries mais conhecidas para calcular <span class="math notranslate nohighlight">\(\pi\)</span> é a <strong>série de Leibniz</strong>, que é uma soma infinita alternada. A fórmula para calcular <span class="math notranslate nohighlight">\(\pi\)</span> usando essa série é:</p>
+<div class="math notranslate nohighlight">
+\[
+    \pi = 4 \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots \right)
+    \]</div>
+</li>
+<li><p><strong>Série de Basel</strong></p>
+<p>Outra maneira de calcular aproximações de <span class="math notranslate nohighlight">\(\pi\)</span> vem da <strong>série de Basel</strong>, que envolve a soma dos inversos dos quadrados dos números naturais. A fórmula é a seguinte:</p>
+<div class="math notranslate nohighlight">
+\[
+    \pi = \sqrt{\sum_{n=1}^{\infty} \frac{1}{n^2}} = \sqrt{1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \cdots}
+    \]</div>
+</li>
+<li><p><strong>Produto de Wallis</strong></p>
+<p>Uma terceira forma de aproximar <span class="math notranslate nohighlight">\(\pi\)</span> é por meio do <strong>produto de Wallis</strong>, que é um produto infinito de frações. A fórmula para esse cálculo é:</p>
+<div class="math notranslate nohighlight">
+\[
+    \pi = 4 \times \frac{2}{3} \times \frac{4}{3} \times \frac{6}{5} \times \frac{8}{7} \times \cdots
+    \]</div>
+</li>
+</ol>
+<p>Para cada uma das séries descritas, desenvolva um programa que compute a aproximação de <span class="math notranslate nohighlight">\(\pi\)</span>. O número de termos a ser considerado na série deve ser definido pelo usuário, para que ele possa observar a convergência do valor de <span class="math notranslate nohighlight">\(\pi\)</span> conforme mais termos são somados ou multiplicados. O objetivo é fornecer aproximações cada vez mais precisas de <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="24">
+<li><p>Uma forma de calcular a raiz quadrada de um número, quando ele é um quadrado perfeito, é realizar sucessivas subtrações de números ímpares consecutivos a partir de 1. O processo continua até que o valor restante seja zero ou negativo. O número de subtrações feitas é igual à raiz quadrada do número original.</p>
+<p>Considerando o número 16:</p>
+<p>Deve-se subtrair de 16 os números ímpares maiores que 1 até o resultado ser zero ou negativo:</p>
+<ol class="arabic simple">
+<li><p>16 - 1 = 15</p></li>
+<li><p>15 - 3 = 12</p></li>
+<li><p>12 - 5 = 7</p></li>
+<li><p>7 - 7 = 0</p></li>
+</ol>
+<p>Ao realizar quatro subtrações, o valor chega a zero, e, portanto, a raiz quadrada de 16 é 4.</p>
+<p>Elabore um programa que, dado um número inteiro que seja um quadrado perfeito, calcule sua raiz quadrada utilizando essa técnica de subtração de números ímpares.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="25">
+<li><p>Crie um programa que solicite um nome de usuário e uma senha. O programa deve validar essas informações com valores predefinidos e, caso estejam incorretos, exibir uma mensagem de erro, pedindo ao usuário para tentar novamente. Considere que o nome de usuário seja o seu primeiro nome e a senha seja <strong>Scooby-dooby-doo</strong>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="26">
+<li><p>Elabore um programa que solicite a idade de <em>n</em> pessoas. Ao final, o programa deve calcular a média de idade do grupo e classificá-lo conforme os seguintes critérios:</p>
+<ul class="simple">
+<li><p>Se a média for entre 0 e 25, a turma será considerada «jovem».</p></li>
+<li><p>Se a média estiver entre 26 e 60, a turma será considerada «adulta».</p></li>
+<li><p>Se a média for superior a 60, a turma será considerada «idosa».</p></li>
+</ul>
+<p>A classificação deverá ser exibida com base na média calculada das idades informadas.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="27">
+<li><p>Escreva uma função que calcule o raio de um círculo, dado um valor de raio. Peça um valor de raio ao usuário e calcule o valor da função.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="28">
+<li><p>Escreva uma função que verifica se um número é par. Se for, imprima uma mensagem. Se não for, imprima outra mensagem.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="30">
+<li><p>No exercício acima, se o número for par, verifique se ele é múltiplo de 4. Se for, exiba uma mensagem diferente.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="31">
+<li><p>Escreva uma função que recebe uma lista e um valor e retorna uma sub-lista apenas com os elementos menores do que o valor fornecido.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="32">
+<li><p>Escreva uma função que calcula a multiplicação de duas matrizes usando laços, mas apenas se as dimensões das matrizes forem compatíveis.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="33">
+<li><p>Um número primo é aquele que é divisível apenas por um e por ele mesmo. Escreva uma função que verifica se um número é primo.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="34">
+<li><p>Faça uma função que retorna todos os divisores de um número.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="35">
+<li><p>Implemente uma função que determine o valor máximo presente em uma lista de elementos.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="36">
+<li><p>Faça uma função que calcula o fatorial de um número.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="37">
+<li><p>A função seno de um número pode ser aproximada por meio de uma série infinita, que calcula uma soma sucessiva de termos baseados no valor do ângulo. A fórmula dessa série é:</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{sen}(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{2n+1} = x - \frac{x^3}{3!}+\frac{x^5}{5!} - \cdots
+    \]</div>
+<p>Elabore um programa que aceite como entrada o valor do ângulo <span class="math notranslate nohighlight">\(x\)</span> em radianos e o número de termos <span class="math notranslate nohighlight">\(n\)</span> da série. O programa deve calcular e exibir o valor aproximado de <span class="math notranslate nohighlight">\(\text{sen}(x)\)</span> utilizando os <span class="math notranslate nohighlight">\(n\)</span> primeiros termos dessa série.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="38">
+<li><p>A função cosseno de um número pode ser aproximada por meio de uma série infinita, que calcula uma soma sucessiva de termos baseados no valor do ângulo. A fórmula dessa série é:</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{cos}(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} \cdot x^{2n} = 1 - \frac{x^2}{2!}+\frac{x^4}{4!} - \cdots
+    \]</div>
+<p>Elabore um programa que aceite como entrada o valor do ângulo <span class="math notranslate nohighlight">\(x\)</span> em radianos e o número de termos <span class="math notranslate nohighlight">\(n\)</span> da série. O programa deve calcular e exibir o valor aproximado de <span class="math notranslate nohighlight">\(\text{sen}(x)\)</span> utilizando os <span class="math notranslate nohighlight">\(n\)</span> primeiros termos dessa série.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="39">
+<li><p>Escreva uma função que recebe uma lista, um valor e uma função de comparação e retorna uma sub-lista apenas com os elementos para os quais a função fornecida retorna <strong>True</strong>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="40">
+<li><p>Implemente uma função que, dada uma lista de números inteiros L e um valor x, determine se x está presente na lista. Caso esteja, a função deve retornar o índice (posição) onde x se encontra. Se o valor não estiver na lista, a função deve retornar <code class="docutils literal notranslate"><span class="pre">False</span></code>. Essa tarefa é equivalente ao uso do operador <code class="docutils literal notranslate"><span class="pre">in</span></code> em Python, mas implementado de forma personalizada.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="41">
+<li><p>Dada a lista de números <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">[-8,</span> <span class="pre">-29,</span> <span class="pre">100,</span> <span class="pre">2,</span> <span class="pre">-2,</span> <span class="pre">40,</span> <span class="pre">23,</span> <span class="pre">-8,</span> <span class="pre">-7,</span> <span class="pre">77]</span></code>, implemente funções que, ao receber a lista como entrada, retornem os seguintes resultados:</p>
+<ul>
+<li><p>a) Encontrar o menor número da lista</p></li>
+<li><p>b) Encontrar o maior número da lista</p></li>
+<li><p>c) Calcular a média dos elementos da lista</p></li>
+<li><p>d) Inverter a lista</p></li>
+<li><p>e) Calcular o desvio padrão dos elementos da lista</p>
+<div class="math notranslate nohighlight">
+\[ \text{Desvio} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2} \]</div>
+<p>em que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x_i \)</span> são os elementos da lista.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \bar{x} \)</span> é a média dos elementos.</p></li>
+<li><p><span class="math notranslate nohighlight">\( n \)</span> é o número de elementos da lista.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="42">
+<li><p>Implemente uma função que receba duas palavras como entrada (strings) e verifique se elas são palíndromas, ou seja, se uma palavra for o inverso exato da outra.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="43">
+<li><p>Um <em>pangrama</em> é uma sentença que contém todas as 26 letras do alfabeto ao menos uma vez. Por exemplo, as sentenças</p>
+<ul class="simple">
+<li><p>«<em>Todo pajé vulgar faz boquinha sexy com kiwi.</em>»</p></li>
+<li><p>«<em>Já fiz vinho com toque de kiwi para belga sexy.</em>»</p></li>
+<li><p>«<em>Bancos fúteis pagavam-lhe queijo, whisky e xadrez.</em>»</p></li>
+</ul>
+<p>são pangramas, pois inclui todas as letras do alfabeto.</p>
+<p>Escreva uma função que receba uma sentença como entrada e retorne <code class="docutils literal notranslate"><span class="pre">True</span></code> se a sentença for um pangrama e <code class="docutils literal notranslate"><span class="pre">False</span></code> caso contrário.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="44">
+<li><p>Seja uma lista <code class="docutils literal notranslate"><span class="pre">L</span></code> que contém o nome de diversas pessoas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mark&#39;</span><span class="p">,</span> <span class="s1">&#39;henry&#39;</span><span class="p">,</span> <span class="s1">&#39;matthew&#39;</span><span class="p">,</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;luke&#39;</span><span class="p">,</span> <span class="s1">&#39;robert&#39;</span><span class="p">,</span> <span class="s1">&#39;joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;carl&#39;</span><span class="p">,</span> <span class="s1">&#39;michael&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Escreva uma função que receba L como entrada e retorne um dicionário em que os nomes são agrupados pelo tamanho. (Por exemplo, na chave 4 deve ser armazenada uma lista com os nomes de 4 letras, e assim por diante.)</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="45">
+<li><p>Em uma papelaria, os seguintes produtos estão disponíveis com os preços indicados abaixo:</p>
+<ul class="simple">
+<li><p>Caderno: R$ 10,00</p></li>
+<li><p>Pasta: R$ 7,50</p></li>
+<li><p>Lápis: R$ 2,50</p></li>
+<li><p>Caneta: R$ 3,00</p></li>
+<li><p>Borracha: R$ 4,00</p></li>
+</ul>
+<p>a) Crie um dicionário <code class="docutils literal notranslate"><span class="pre">d</span></code> onde o nome de cada produto é a chave e o preço é o valor associado.</p>
+<p>b) Desenvolva uma função que encontre o produto mais barato.</p>
+<p>c) Devido à inflação, os produtos com preço abaixo de R<span class="math notranslate nohighlight">\( 5 terão um aumento de 20%, enquanto os produtos com preço superior a R\)</span> 5 terão um aumento de 10%. Escreva uma função que atualize os preços dos produtos conforme essa regra.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="46">
+<li><p>Em uma turma com N alunos, a avaliação final será realizada com base em 3 provas (P1, P2 e P3). Alunos com média inferior a 6 serão reprovados, enquanto os que tiverem média igual ou superior a 6 serão aprovados. A seguir, temos as questões a serem resolvidas:</p>
+<p>a) Escreva um trecho de código em Python que crie um dicionário inicialmente vazio, chamado <code class="docutils literal notranslate"><span class="pre">dados</span></code>, onde a chave é o nome do aluno e o valor é uma lista contendo as 3 notas (P1, P2 e P3) do aluno.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aluno</p></th>
+<th class="head"><p>P1</p></th>
+<th class="head"><p>P2</p></th>
+<th class="head"><p>P3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>João</p></td>
+<td><p>6.5</p></td>
+<td><p>5.0</p></td>
+<td><p>7.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ana</p></td>
+<td><p>8.5</p></td>
+<td><p>4.0</p></td>
+<td><p>7.5</p></td>
+</tr>
+<tr class="row-even"><td><p>Carlos</p></td>
+<td><p>3.0</p></td>
+<td><p>5.0</p></td>
+<td><p>7.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maria</p></td>
+<td><p>5.5</p></td>
+<td><p>6.0</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-even"><td><p>José</p></td>
+<td><p>3.5</p></td>
+<td><p>5.0</p></td>
+<td><p>6.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>b) Escreva uma função que percorra o dicionário <code class="docutils literal notranslate"><span class="pre">dados</span></code> e, para cada aluno, calcule a média das 3 notas. Com base na média, imprima o nome do aluno e sua condição (aprovado ou reprovado).</p>
+<p>c) Os 3 melhores alunos da turma receberão uma bolsa de estudos. Escreva uma função que ordene os alunos pelas suas médias em ordem decrescente e imprima o nome dos alunos e suas respectivas médias. Isso deve gerar um ranking dos estudantes.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="47">
+<li><p><strong>(Desafio: Cálculo dos Dígitos Verificadores de um CPF)</strong></p>
+<p>O número de um CPF é composto por 9 algarismos seguidos de dois dígitos verificadores, que aparecem após um hífen ou uma barra. Em resumo, o CPF possui 11 algarismos no total. Ele pode ser apresentado no formato <code class="docutils literal notranslate"><span class="pre">ABCDEFGHI-JK</span></code> ou simplesmente como <code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJK</span></code>, sendo que os números não podem ser todos iguais.</p>
+<p>Os dois últimos digitos são chamados de verificadores:</p>
+<ul class="simple">
+<li><p><strong>J</strong> é o primeiro dígito verificador.</p></li>
+<li><p><strong>K</strong> é o segundo dígito verificador.</p></li>
+</ul>
+<p><strong>Como calcular o primeiro dígito (J)?</strong></p>
+<p>Para calcular o primeiro dígito verificador, denominando-o como <strong>J</strong>, realizamos as seguintes multiplicações:</p>
+<ul class="simple">
+<li><p>Multiplicamos os 9 primeiros dígitos do CPF (A, B, C, D, E, F, G, H, I) pelas constantes:</p></li>
+<li><p>A × 10</p></li>
+<li><p>B × 9</p></li>
+<li><p>C × 8</p></li>
+<li><p>D × 7</p></li>
+<li><p>E × 6</p></li>
+<li><p>F × 5</p></li>
+<li><p>G × 4</p></li>
+<li><p>H × 3</p></li>
+<li><p>I × 2</p></li>
+</ul>
+<p>A soma dos resultados dessas multiplicações é calculada e chamada de <strong>S</strong>.</p>
+<p>Em seguida, dividimos <strong>S</strong> por 11 e analisamos o <strong>resto</strong> dessa divisão:</p>
+<ul class="simple">
+<li><p>Se o <strong>resto</strong> for 0 ou 1, o dígito <strong>J</strong> será 0.</p></li>
+<li><p>Se o <strong>resto</strong> for qualquer valor de 2 a 10, o dígito <strong>J</strong> será igual a <strong>11 - resto</strong>.</p></li>
+</ul>
+<p><strong>Como calcular o segundo dígito (K)?</strong></p>
+<p>Com o dígito <strong>J</strong> já calculado, seguimos para o cálculo do segundo dígito verificador, chamado <strong>K</strong>. Para isso, multiplicamos os 9 primeiros dígitos do CPF, além do dígito <strong>J</strong>, pelas seguintes constantes:</p>
+<ul class="simple">
+<li><p>A × 11</p></li>
+<li><p>B × 10</p></li>
+<li><p>C × 9</p></li>
+<li><p>D × 8</p></li>
+<li><p>E × 7</p></li>
+<li><p>F × 6</p></li>
+<li><p>G × 5</p></li>
+<li><p>H × 4</p></li>
+<li><p>I × 3</p></li>
+<li><p>J × 2</p></li>
+</ul>
+<p>Calculamos a soma dos produtos resultantes, que também chamamos de <strong>S</strong>.</p>
+<p>Novamente, dividimos a soma por 11 e analisamos o <strong>resto</strong>:</p>
+<ul class="simple">
+<li><p>Se o <strong>resto</strong> for 0 ou 1, o dígito <strong>K</strong> será 0.</p></li>
+<li><p>Se o <strong>resto</strong> for qualquer valor de 2 a 10, o dígito <strong>K</strong> será igual a <strong>11 - resto</strong>.</p></li>
+</ul>
+<p>Crie uma função em Python que, ao receber os 9 primeiros dígitos de um CPF, calcule e gere os dois dígitos verificadores (J e K). O programa deve ser testado com um CPF válido.</p>
+</li>
+</ol>
+<ol class="arabic" start="48">
+<li><p><strong>(Desafio: Recursão).</strong></p>
+<p>Recursão é uma abordagem para solucionar problemas que envolve dividir a tarefa em partes menores do mesmo tipo, i.e. é uma abordagem do tipo dividir-para-conquistar. Do ponto de vista computacional, um problema resolvido usando recursão envolve uma função que chama a si mesma até que o problema seja resolvido. Uma parte importante desse tipo de solução é a definição do ponto de parada da recursão, quando a função para de chamar a si mesma e começar a retornar os valores para as chamadas mais «acima». Vejamos um exemplo de recursão para o cálculo do fatorial de um número <em>n</em>:</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 1, 120)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Agora implemente uma função recursiva que recebe um número e retorna o número correspondente na sequência de Fibonacci.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="49">
+<li><p><strong>(Desafio: Precisão da máquina)</strong></p></li>
+</ol>
+<p>A <em>precisão da máquina</em> é definida como o menor número <span class="math notranslate nohighlight">\(\epsilon\)</span> tal que, quando somado a 1, ainda resulta em um valor diferente de 1. Ou seja, é o menor valor que, quando adicionado a 1, não causa uma alteração no número devido às limitações de precisão do sistema.</p>
+<p>Vamos calcular esse valor de <span class="math notranslate nohighlight">\(\epsilon\)</span>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Escolha um valor inicial para $\epsilon$, por exemplo, `eps = 1`.
+
+* Crie um laço que verifique se `1 + eps` é diferente de 1.
+
+* A cada iteração do laço, corte o valor de `eps` pela metade.
+</pre></div>
+</div>
+<p>Qual valor de <span class="math notranslate nohighlight">\(\epsilon\)</span> você encontra?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="50">
+<li><p>(Desafio: Interações - Parte 1)</p></li>
+</ol>
+<p>Para iterar sobre tuplas, onde a tupla <em>i</em>-ésima contém os <em>i</em>-ésimos elementos de certas sequências, podemos usar a função <code class="docutils literal notranslate"><span class="pre">zip(*sequences)</span></code>.</p>
+<p>Vamos iterar sobre duas listas, <code class="docutils literal notranslate"><span class="pre">names</span></code> e <code class="docutils literal notranslate"><span class="pre">age</span></code>, e imprimir as tuplas resultantes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Comece inicializando as listas `names = [&quot;Mary&quot;, &quot;John&quot;, &quot;Sarah&quot;]` e `age = [21, 56, 98]`.
+
+* Itere sobre as tuplas que contêm um nome e uma idade, a função `zip(list1, list2)` pode ser útil aqui.
+
+* Imprima strings formatadas do tipo &quot;*NOME tem IDADE anos*&quot;.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="51">
+<li><p>(Desafio: Interações - Parte 2)</p></li>
+</ol>
+<p>A função <code class="docutils literal notranslate"><span class="pre">enumerate(sequence)</span></code> retorna tuplas contendo índices de objetos na sequência, e os próprios objetos.</p>
+<p>O módulo <code class="docutils literal notranslate"><span class="pre">random</span></code> fornece ferramentas para trabalhar com números aleatórios. Em particular, <code class="docutils literal notranslate"><span class="pre">random.randint(start,</span> <span class="pre">end)</span></code> gera um número aleatório que não é menor que <code class="docutils literal notranslate"><span class="pre">start</span></code> e não é maior que <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
+<ul class="simple">
+<li><p>Gere uma lista de 10 números aleatórios de 0 a 9.</p></li>
+<li><p>Usando a função <code class="docutils literal notranslate"><span class="pre">enumerate(random_list)</span></code>, itere sobre as tuplas de números aleatórios e seus índices, e imprima <em>«Match: NÚMERO e ÍNDICE»</em> se o número aleatório e seu índice na lista coincidirem.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="52">
+<li><p><strong>(Desafio: Contando Palavras)</strong></p></li>
+</ol>
+<p>Considere o seguinte texto:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Ouviram do Ipiranga as margens plácidas</span>
+<span class="s2">De um povo heróico o brado retumbante,</span>
+<span class="s2">E o sol da Liberdade, em raios fúlgidos,</span>
+<span class="s2">Brilhou no céu da Pátria nesse instante.</span>
+<span class="s2">Se o penhor dessa igualdade</span>
+<span class="s2">Conseguimos conquistar com braço forte,</span>
+<span class="s2">Em teu seio, ó Liberdade,</span>
+<span class="s2">Desafia o nosso peito a própria morte!</span>
+<span class="s2">Ó Pátria amada, Idolatrada, Salve! Salve!</span>
+<span class="s2">Brasil, um sonho intenso, um raio vívido</span>
+<span class="s2">De amor e de esperança à terra desce,</span>
+<span class="s2">Se em teu formoso céu, risonho e límpido,</span>
+<span class="s2">A imagem do Cruzeiro resplandece.</span>
+<span class="s2">Gigante pela própria natureza,</span>
+<span class="s2">És belo, és forte, impávido colosso,</span>
+<span class="s2">E o teu futuro espelha essa grandeza</span>
+<span class="s2">Terra adorada, Entre outras mil,</span>
+<span class="s2">És tu, Brasil, Ó Pátria amada!</span>
+<span class="s2">Dos filhos deste solo és mãe gentil,</span>
+<span class="s2">Pátria amada, Brasil!</span>
+<span class="s2">Deitado eternamente em berço esplêndido,</span>
+<span class="s2">Ao som do mar e à luz do céu profundo,</span>
+<span class="s2">Fulguras, ó Brasil, florão da América,</span>
+<span class="s2">Iluminado ao sol do Novo Mundo!</span>
+<span class="s2">Do que a terra mais garrida</span>
+<span class="s2">Teus risonhos, lindos campos têm mais flores;</span>
+<span class="s2">&quot;Nossos bosques têm mais vida&quot;,</span>
+<span class="s2">&quot;Nossa vida&quot; no teu seio &quot;mais amores&quot;.</span>
+<span class="s2">Ó Pátria amada, Idolatrada, Salve! Salve!</span>
+<span class="s2">Brasil, de amor eterno seja símbolo</span>
+<span class="s2">O lábaro que ostentas estrelado,</span>
+<span class="s2">E diga o verde-louro desta flâmula</span>
+<span class="s2">Paz no futuro e glória no passado.</span>
+<span class="s2">Mas, se ergues da justiça a clava forte,</span>
+<span class="s2">Verás que um filho teu não foge à luta,</span>
+<span class="s2">Nem teme, quem te adora, a própria morte!</span>
+<span class="s2">Terra adorada Entre outras mil,</span>
+<span class="s2">És tu, Brasil, Ó Pátria amada!</span>
+<span class="s2">Dos filhos deste solo és mãe gentil,</span>
+<span class="s2">Pátria amada, Brasil!</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Crie um dicionário que use as palavras únicas como chaves e tenha como valor o número de vezes que cada palavra aparece.</p>
+<p>a) Escreva um loop sobre as palavras na string (usando <code class="docutils literal notranslate"><span class="pre">split</span></code>) e faça o seguinte:</p>
+<ul class="simple">
+<li><p>remova qualquer pontuação (função <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>)</p></li>
+<li><p>converta para minúsculas (função <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>)</p></li>
+<li><p>verifique se a palavra já é uma chave no dicionário (usando o operador <code class="docutils literal notranslate"><span class="pre">in</span></code>)</p>
+<ul>
+<li><p>se a chave existir, incremente a contagem da palavra para essa chave</p></li>
+<li><p>caso contrário, adicione-a ao dicionário com a contagem apropriada de <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Ao final, imprima as palavras e a contagem de quantas vezes elas aparecem.</p>
+<p>b) Refaça o exercício anterior e após a o item para coversão para eltras minusculas, use o <code class="docutils literal notranslate"><span class="pre">set</span></code> para garantir que as palavras repetidas sejam removidas e o <code class="docutils literal notranslate"><span class="pre">count</span></code> para contar quantas vezes cada palavra aparece na lista e crie o dicionário.</p>
+<p>c) Considerando o Hino Nacional Brasileiro, escreva uma função que retorne todas as palavras com exatamente <span class="math notranslate nohighlight">\(N\)</span> letras. O texto do Hino e o valor de <span class="math notranslate nohighlight">\(N\)</span> devem ser fornecidos como entradas para a função.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="53">
+<li><p>(Desafio: Cifra de César)</p></li>
+</ol>
+<p>Criptografia é o processo de transformar mensagens usando um conjunto de símbolos, com o objetivo de tornar seu conteúdo mais difícil de ser interpretado. Uma técnica simples para criptografar uma mensagem de texto é a <strong>cifra de César</strong>.</p>
+<p>A cifra de César consiste em deslocar cada letra do alfabeto um número fixo de vezes. Por exemplo, se o deslocamento for de três, a letra «B» se torna «E» no texto cifrado.</p>
+<p>a) Utilize um dicionário para implementar a cifra de César. Crie uma função chamada <code class="docutils literal notranslate"><span class="pre">encript</span></code> que receba três parâmetros: uma mensagem, um alfabeto e um valor K (deslocamento). A função deve retornar a mensagem criptografada.</p>
+<p>b) Da mesma forma, utilize um dicionário para implementar a cifra de César. Crie uma função chamada <code class="docutils literal notranslate"><span class="pre">decript</span></code> que também receba três parâmetros: uma mensagem, um alfabeto e um valor K (deslocamento). A função deve retornar a mensagem descriptografada.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "danielborin/lastone",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./01-python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="L01_python_06_Script.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Script</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../02-numpy/L02_numpy_01_Basico.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">próximo</p>
+        <p class="prev-next-title">Numpy: Operações Básicas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De Daniel Borin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
